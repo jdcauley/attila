@@ -1,10 +1,5 @@
-require('dotenv').config()
 process.env.NODE_ENV = 'production'
 const path = require('path')
-const config = require('../config')
-
-const { VERSION } = config
-const THEME_SLUG = process.env.THEME_SLUG || 'mediavine-trellis'
 
 module.exports = {
   mode: 'production',
@@ -12,10 +7,10 @@ module.exports = {
     workbox: path.resolve(__dirname, '../assets/src/js/workbox.js'),
   },
   output: {
-    filename: `[name].${VERSION}.js`,
-    path: path.resolve(__dirname, '../assets/dist'),
-    publicPath: `/wp-content/themes/${THEME_SLUG}/assets/dist/`,
-    jsonpFunction: 'mvtrellisJsonp',
+    filename: `sw.js`,
+    path: path.resolve(__dirname, '../'),
+    publicPath: `/`,
+    jsonpFunction: 'attilaSWJsonp',
   },
   module: {
     rules: [
