@@ -1,14 +1,7 @@
 import '../sass/style.scss'
+import { loadImages } from './libs/imgs'
 
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js',{
-      scope: '/'
-    }).then(done => {
-      console.log(done)
-    }).catch(err => {
-      console.log(err)
-    })
-  }
+  loadImages()
 
   var html = document.querySelector('html')
   // var viewport = $(window);
@@ -94,3 +87,13 @@ import '../sass/style.scss'
     });
   }
   gallery();
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js',{
+      scope: '/'
+    }).then(done => {
+      console.log(done)
+    }).catch(err => {
+      console.log(err)
+    })
+  }
